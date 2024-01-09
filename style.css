@@ -46,3 +46,7 @@ main{
 .card{
     margin: 15px;
 }
+.contact-form{
+    width: 80%;
+    margin: auto;
+}
