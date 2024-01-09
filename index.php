@@ -88,7 +88,7 @@ $recipes = [
         "order" => "Étalez une pâte brisée, disposez des tranches de pommes, saupoudrez de sucre et de cannelle. Cuire 40 min à 200°C.",
         "date" => "2024-06-02 08:20:00",
         "pic" => "ressource/recette_tarte_au_pomme.png",
-        "available" => true,
+        "available" => false,
     ],
     [
         "name" => "Quiche Lorraine",
@@ -159,18 +159,18 @@ $recipes = [
     <main>
     <h1 class="uppercase">Nos recettes</h1>
     <div class="ctn-card">
-        <?php for($i = 0; $i < count($recipes); $i++):?>
-            <?php $picture = $recipes[$i]['pic'];
-            ?>
-            <div class="card">
-                <img src="<?= $picture;?>" alt="image illustration recette" class="card-img-top">
-                <div class="card-body">
-                    <h2 class="card-title"><?php echo $recipes[$i]['name']; ?></h2>
-                    <p class="card-text"><?php echo $recipes[$i]['order']; ?> </p>
-                    <p class="card-text italic">Proposé par <span class="bold blue"><?= $recipes[$i]['author']; ?></span></p>
+        <?php foreach($recipes as $recipe): ?>
+            <?php if(array_key_exists("available", $recipe) && $recipe['available']):?>
+                <div class="card">
+                    <img src="<?= $recipe['pic'];?>" alt="illustration de la recette" class="card-img-top">
+                    <div class="card-body">
+                        <h2 class="card-title"><?= $recipe['name']; ?></h2>
+                        <p class="card-text"><?= $recipe['order']; ?> </p>
+                        <p class="card-text italic">Proposé par <span class="bold blue"><?= $recipe['author']; ?></span></p>
+                    </div>
                 </div>
-            </div>
-        <?php endfor; ?>
+            <?php endif; ?>
+        <?php endforeach; ?>
     </div>
     
     </main>
