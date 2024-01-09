@@ -64,7 +64,7 @@ $recipes = [
         "order" => "Mélangez 250g de farine, 4 œufs, 500ml de lait, une pincée de sel. Laissez reposer 1h. Cuire à la poêle.",
         "date" => "2024-03-10 10:00:00",
         "pic" => "ressource/recette_crepe.png",
-        "available" => true,
+        "available" => false,
     ],
     [
         "name" => "Soupe de Poissons",
@@ -80,7 +80,7 @@ $recipes = [
         "order" => "Mélangez 200g de chocolat fondu, 100g de beurre, 150g de sucre, 3 œufs, 50g de farine. Cuire 30 min à 180°C.",
         "date" => "2024-05-15 18:45:00",
         "pic" => "ressource/recette_gateau_chocolat.png",
-        "available" => false,
+        "available" => true,
     ],
     [
         "name" => "Tarte aux Pommes",
@@ -88,7 +88,7 @@ $recipes = [
         "order" => "Étalez une pâte brisée, disposez des tranches de pommes, saupoudrez de sucre et de cannelle. Cuire 40 min à 200°C.",
         "date" => "2024-06-02 08:20:00",
         "pic" => "ressource/recette_tarte_au_pomme.png",
-        "available" => false,
+        "available" => true,
     ],
     [
         "name" => "Quiche Lorraine",
@@ -100,6 +100,27 @@ $recipes = [
     ],
 ];
 
+// function qui vérifie si une recette est valide. Celle ci récupère la valeur de available pour la recette.
+function isAvailable(array $recipe) :bool
+{
+    if(array_key_exists('available', $recipe)){
+        $isAvailable = $recipe['available']; //on affecte à la variable la valeur de la clé available true || false
+    }else{
+        $isAvailable = false;
+    }
+    return $isAvailable;
+}
+
+//fonction vient récupérer dans un tableau les recette available
+function getRecipe(array $arrRecipes){
+    $recipeAvailable = []; //on déclare un tableau vide qui viendras stocker les recettes valide
+    foreach($arrRecipes as $recipe){ //on appelle la fonction qui vient vérifier si la recette est available
+        if(isAvailable($recipe)){ 
+            $recipeAvailable[] = $recipe; //on ajoute dans le tableau la recette si elle est valide
+        }
+    }
+    return $recipeAvailable; //on returne le tableau des recettes valides
+}
 ?>
 
 <!DOCTYPE html>
@@ -157,19 +178,18 @@ $recipes = [
     </header>
 
     <main>
+        <a href="test.php">Page de test des fonctions</a>
     <h1 class="uppercase">Nos recettes</h1>
     <div class="ctn-card">
-        <?php foreach($recipes as $recipe): ?>
-            <?php if(array_key_exists("available", $recipe) && $recipe['available']):?>
-                <div class="card">
-                    <img src="<?= $recipe['pic'];?>" alt="illustration de la recette" class="card-img-top">
-                    <div class="card-body">
-                        <h2 class="card-title"><?= $recipe['name']; ?></h2>
-                        <p class="card-text"><?= $recipe['order']; ?> </p>
-                        <p class="card-text italic">Proposé par <span class="bold blue"><?= $recipe['author']; ?></span></p>
-                    </div>
+        <?php foreach(getRecipe($recipes) as $recipe): ?>
+            <div class="card">
+                <img src="<?= $recipe['pic'];?>" alt="illustration de la recette" class="card-img-top">
+                <div class="card-body">
+                    <h2 class="card-title"><?= $recipe['name']; ?></h2>
+                    <p class="card-text"><?= $recipe['order']; ?> </p>
+                    <p class="card-text italic">Proposé par <span class="bold blue"><?= $recipe['author']; ?></span></p>
                 </div>
-            <?php endif; ?>
+            </div>
         <?php endforeach; ?>
     </div>
     
