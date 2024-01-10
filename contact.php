@@ -10,7 +10,7 @@ include_once('head.php');
         </div>
         <div class="mb-3">
             <label for="message" class="form-label text-start">Saisir votre message</label>
-            <textarea class="form-control" id="message" rows="3" name="message">Exprimez vous</textarea>
+            <textarea class="form-control" id="message" rows="3" name="message" placeholder="Saisir votre message"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Soumettre</button>
     </form>
