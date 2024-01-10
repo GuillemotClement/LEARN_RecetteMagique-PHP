@@ -3,8 +3,12 @@ include_once("head.php");
 
 $getData = $_GET;
 
-if(!isset($getDate['email']) && isset($getData['message'])){
-    echo "<h1>Erreur</h1>";
-    echo "<p>Saisis invalide";
-}
+if(!isset($getDate['email']) 
+    || filter_var($getData['email'], FILTER_VALIDATE_EMAIL)
+    || empty($getData['message'])
+    || trim($getData['message']))
+    {
+        echo "<h1>Erreur</h1>";
+        echo "<p>Saisis invalide";
+    }
 include_once('footer.php');
