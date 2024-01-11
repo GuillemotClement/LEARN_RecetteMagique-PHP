@@ -1,17 +1,33 @@
 <?php
+$postData = $_POST;
+
+if(
+    !isset($postData['email']) ||
+    !filter_var($postData['email'], FILTER_VALIDATE_EMAIL) ||
+    empty($postData['message']) ||
+    trim($postData['message']) ===''
+){
+    echo 'Saisis invalide des données';
+    return;
+}
+
 include_once("head.php");
+?>
 
-$getData = $_GET;
-
-if( !isset($getDate['email']) )
-    // || !filter_var($getData['email'], FILTER_VALIDATE_EMAIL)
-    // || empty($getData['message']))
-    // || trim($getData['message']) === '')
-    {
-        echo "<h1>Erreur</h1>";
-        echo "<p>Saisis invalide";
-    }
-    else {
-        echo print_r($getData);
-    }
+<body>
+    <div class="container">
+        <h1>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Rappel des vos information</h5>
+                    <p class="card-text">Email :<?= $postData['email'];?></p>
+                    <p class="card-text">Message :<?= $postData['message'];?></p>
+                </div>
+            </div>
+        </h1>
+    </div>
+</body>
+<?php 
 include_once('footer.php');
+
+?>
