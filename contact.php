@@ -2,17 +2,15 @@
 include_once('head.php');
 ?>
 <main class="contact-form">
-    <h2 class="text-center">Contactez nous</h2>
-    <form action="submit_contact.php" method="post">
+    <h2 class="text-center uppercase">Formulaire de connexion</h2>
+    <form action="submit_contact.php" method="post" class="text-start">
         <div class="mb-3">
-            <label for="email" class="form-label text-start">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
+            <label for="pseudo" class="form-label text-start">Pseudo</label>
+            <input type="text" class="form-control" id="pseudo" placeholder="@username" name="pseudo" autocomplete="nope">
+            <label for="password" class="form-label text-start">Password</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="*******" autocomplete="nope">
         </div>
-        <div class="mb-3">
-            <label for="message" class="form-label text-start">Saisir votre message</label>
-            <textarea class="form-control" id="message" rows="3" name="message" placeholder="Saisir votre message"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary">Soumettre</button>
+        <button type="submit" class="btn btn-primary text-center uppercase">Se connecter</button>
     </form>
 </main>
 
