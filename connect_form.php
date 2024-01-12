@@ -3,7 +3,7 @@ include_once('head.php');
 ?>
 <main class="contact-form">
     <h2 class="text-center uppercase">Formulaire de connexion</h2>
-    <form action="submit_contact.php" method="post" class="text-start">
+    <form action="submit_connect.php" method="post" class="text-start">
         <div class="mb-3">
             <label for="pseudo" class="form-label text-start">Pseudo</label>
             <input type="text" class="form-control" id="pseudo" placeholder="@username" name="pseudo" autocomplete="nope">

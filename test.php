@@ -90,17 +90,7 @@ $users = [
     ],
 ];
 
-//functon qui récupère l'auteur de la recette
 
-function getAuthor(string $authorRecipe, array $users){
-    foreach($users as $user){
-        if($authorRecipe === $user['pseudo']){
-            return $user["first_name"]." ".$user["last_name"]. " ".$user['age']." ans";
-        }
-    }
-}
-
-echo getAuthor("BreizhCoder", $users);
 
 
 
