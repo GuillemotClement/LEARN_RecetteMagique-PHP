@@ -12,6 +12,35 @@ if(
     return;
 }
 
+if(isset($_FILES) && $_FILES['file']['error'] == 0){
+    
+    if($_FILES['file']['size'] > 2000000){
+        echo "Le fichier est trop lourds";
+        return;
+    }
+
+    $fileInfo = pathinfo($_FILES['file']['name']);
+    $fileExtension = $fileInfo['extension'];
+    $allowExtension = ['jpg', 'jpeg', 'gif', 'png', 'webp'];
+    if(!in_array($fileExtension, $allowExtension)){
+        echo "Extension de fichier non autorisé";
+        return;
+    }
+
+    $path = "./uploads/";
+    if(!is_dir($path)){
+        echo "Le dossier de réception n'existe pas";
+        return;
+    }
+
+    move_uploaded_file($_FILES['file']['tmp_name'], $path . basename($_FILES['file']['name']));
+
+}
+
+
+
+
+
 require_once('head.php');
 ?>
 
@@ -19,6 +48,8 @@ require_once('head.php');
     <h1 class="text-uppercase">Recapitulatif de votre saisie</h1>
     <p>Votre email est : <span class="fw-bold"><?=htmlspecialchars($postData['email']);?></span></p>
     <p>Votre message est : <span class="fw-bold"><?=htmlspecialchars($postData['message']);?><span></p>
+
+
 </div>
 
 <?php 

@@ -5,7 +5,6 @@ require_once('head.php');
 ?>
 
     <main>
-        <a href="test.php">Page de test des fonctions</a>
         <h1 class="uppercase">Nos recettes</h1>
         <div class="ctn-card">
             <?php foreach(getRecipe($recipes) as $recipe): ?>
