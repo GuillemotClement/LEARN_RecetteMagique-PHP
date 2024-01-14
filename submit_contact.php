@@ -1,6 +1,6 @@
 <?php
 $postData = $_POST;
-
+$pic = false;
 if(
     !isset($postData['email']) ||
     !filter_var($postData['email'], FILTER_VALIDATE_EMAIL) ||
@@ -35,6 +35,7 @@ if(isset($_FILES) && $_FILES['file']['error'] == 0){
 
     move_uploaded_file($_FILES['file']['tmp_name'], $path . basename($_FILES['file']['name']));
 
+    $pic = true;
 }
 
 
@@ -48,8 +49,12 @@ require_once('head.php');
     <h1 class="text-uppercase">Recapitulatif de votre saisie</h1>
     <p>Votre email est : <span class="fw-bold"><?=htmlspecialchars($postData['email']);?></span></p>
     <p>Votre message est : <span class="fw-bold"><?=htmlspecialchars($postData['message']);?><span></p>
-
-
+    <?php if($pic){
+        echo '<p>Image reçus</p>';
+    }else{
+        echo "<p><b>Pas</b> d'image reçus</p>";
+    }
+    ?>
 </div>
 
 <?php 
