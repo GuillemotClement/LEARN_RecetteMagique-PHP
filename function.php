@@ -20,3 +20,9 @@ function getRecipe(array $arrRecipes){
     }
     return $recipeAvailable; //on returne le tableau des recettes valides
 }
+
+function redirectToUrl(string $url) :never
+{
+    header("Location: {$url}");
+    exit;
+}
