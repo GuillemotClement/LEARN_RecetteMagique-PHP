@@ -1,13 +1,24 @@
 <?php
+require_once('variable.php');
 $postData = $_POST;
 $pseudo = $postData['pseudo'];
-
-
+$pseudoFound = false;
 
 
 if( (!isset($postData['pseudo'])) || $postData['pseudo'] == ''){
     echo "Erreur saisie pseudo vide.";
     //permet d'empêcher l'affichage du reste si le pseudo n'est pas valide
+    return;
+}
+
+foreach($users as $user){
+    if(in_array($pseudo, $user)){
+        $pseudoFound = true;
+        break;
+    }
+}
+if(!$pseudoFound){
+    echo "Pseudo Invalide";
     return;
 }
 
