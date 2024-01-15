@@ -23,13 +23,13 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link active" aria-current="page" href="index.php">Accueil</a>
+                                    <a class="nav-link text-uppercase" aria-current="page" href="index.php">Accueil</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact_form.php">Contact</a>
+                                    <a class="nav-link text-uppercase" href="contact_form.php">Contact</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="connect_form.php" class="nav-link">Connection</a>
+                                    <a href="connect_form.php" class="nav-link text-uppercase">Connection</a>
                                 </li>
                                 <!-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

@@ -41,7 +41,21 @@ include_once('head.php');
         <h1 class="uppercase">Bienvenue <?=$pseudo;?></h1>
         <p>Nous somme le <?= date('d\-m\-Y');?></p>
         <p>Il est <?= date('H\:i');?></p>
-        <a href="connect_form.php" class="uppercase text-blue">Retour au formulaire</a>
+    </div>
+    <h3 class="text-uppercase text-center">Vos recettes proposées</h3>
+    <div class="container mx-auto d-flex flex-wrap">
+        
+        <?php foreach($recipes as $recipe):?>
+            <?php if($recipe['author'] === $postData['pseudo']):?>
+                <div class="card shadow">
+                    <img src="<?= $recipe['pic'];?>" alt="illustration de la recette" class="card-img-top border-bottom">
+                    <div class="card-body">
+                        <h2 class="card-title text-uppercase text-center"><?= $recipe['name']; ?></h2>
+                        <p class="card-text"><?= $recipe['order']; ?> </p>
+                    </div>
+                </div>
+            <?php endif;?>
+        <?php endforeach;?>
     </div>
 </body>
 <?php 
