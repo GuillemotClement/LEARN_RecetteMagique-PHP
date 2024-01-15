@@ -3,7 +3,7 @@ require_once('variable.php');
 $postData = $_POST;
 $pseudo = $postData['pseudo'];
 $pseudoFound = false;
-
+$password = "";
 
 if( (!isset($postData['pseudo'])) || $postData['pseudo'] == ''){
     echo "Erreur saisie pseudo vide.";
@@ -22,7 +22,18 @@ if(!$pseudoFound){
     return;
 }
 
-include_once("head.php");
+foreach($users as $user){
+    if(in_array($pseudo, $user)){
+        $password = $user['password'];
+        break;
+    }
+}
+if($password !== $postData['password']){
+    echo "Mot de passe invalide";
+    return;
+}
+
+include_once('head.php');
 ?>
 
 <body>

@@ -9,7 +9,7 @@ $users = [
         "city" => "Brest",
         "phone" => "0298123456",
         "email" => "jlegall@exemple.com",
-        "password" => "",
+        "password" => "123456",
     ],
     [
         "first_name" => "Solène",
