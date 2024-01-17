@@ -5,6 +5,7 @@ require_once('head.php');
 ?>
 
     <main>
+        <a href="first_requete.php">Test requetes BDD</a>
         <h1 class="uppercase">Nos recettes</h1>
         <div class="ctn-card">
             <?php foreach(getRecipe($recipes) as $recipe): ?>
