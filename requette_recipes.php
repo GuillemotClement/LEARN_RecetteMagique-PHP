@@ -1,15 +1,23 @@
-<?php 
-require_once('variable.php');
-require_once('function.php');
+<?php
+require_once('databaseconnect.php');
+require_once('Service/myFct.php');
+
+$queryRecipes = "SELECT name_recipe, author, order_recipe, date_creation_recipe, pic FROM recipes WHERE available = true";
+$recipesStatement = $mysqlClient->prepare($queryRecipes);
+$recipesStatement->execute();
+$recipes = $recipesStatement->fetchAll(PDO::FETCH_ASSOC);
+
 require_once('head.php');
 require_once('header.php');
 ?>
 
-    <main>
-        <a href="first_requete.php">Affichage dynamique recette</a>
-        <a href="user_requette.php">Affichage dyna;ique </a>
-        <h1 class="uppercase">Nos recettes</h1>
-        <div class="ctn-card">
+<main>
+
+
+
+        
+<h1 class="uppercase">Nos recettes</h1>
+<div class="ctn-card">
             <?php foreach(getRecipe($recipes) as $recipe): ?>
                 <div class="card">
                     <img src="<?= $recipe['pic'];?>" alt="illustration de la recette" class="card-img-top">
@@ -22,6 +30,15 @@ require_once('header.php');
             <?php endforeach; ?>
         </div>
     </main>
-    
-    <?php require_once('footer.php');?>
-    
+</main>
+
+
+
+
+
+
+
+
+
+<?php
+require_once('footer.php');
