@@ -12,33 +12,21 @@ require_once('header.php');
 ?>
 
 <main>
-
-
-
-        
-<h1 class="uppercase">Nos recettes</h1>
-<div class="ctn-card">
-            <?php foreach(getRecipe($recipes) as $recipe): ?>
-                <div class="card">
-                    <img src="<?= $recipe['pic'];?>" alt="illustration de la recette" class="card-img-top">
-                    <div class="card-body">
-                        <h2 class="card-title"><?= $recipe['name']; ?></h2>
-                        <p class="card-text"><?= $recipe['order']; ?> </p>
-                        <p class="card-text italic">Proposé par <span class="bold blue"><?= $recipe['author']; ?></span></p>
-                    </div>
+    <h1 class="uppercase">Nos recettes</h1>
+    <div class="ctn-card">
+        <?php foreach($recipes as $recipe): ?>
+            <div class="card">
+                <img src="<?= $recipe['pic'];?>" alt="illustration de la recette" class="card-img-top">
+                <div class="card-body">
+                    <h2 class="card-title"><?= $recipe['name_recipe']; ?></h2>
+                    <p class="card-text"><?= $recipe['order_recipe']; ?> </p>
+                    <p class="card-text italic">Proposé par <span class="bold blue"><?= $recipe['author']; ?></span></p>
+                    <p class="card-text fs-6">Le <span class="bold blue"><?= $recipe['date_creation_recipe']; ?></span></p>
                 </div>
-            <?php endforeach; ?>
-        </div>
-    </main>
+            </div>
+        <?php endforeach; ?>
+    </div>
 </main>
-
-
-
-
-
-
-
-
 
 <?php
 require_once('footer.php');
