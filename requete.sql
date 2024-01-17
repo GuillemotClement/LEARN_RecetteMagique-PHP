@@ -13,14 +13,14 @@ CREATE TABLE users (
     phone VARCHAR(100),
     email VARCHAR(100) NOT NULL,
     password_user VARCHAR(100) NOT NULL,
-    date_creation_user DATE NOT NULL,
+    date_creation_user DATE NOT NULL
 );
 
 CREATE TABLE recipes (
     id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     name_recipe VARCHAR(100) NOT NULL,
     author VARCHAR(100) NOT NULL,
-    order TEXT NOT NULL,
+    order_recipe TEXT NOT NULL,
     date_creation_recipe DATE NOT NULL,
     pic VARCHAR(255),
     available BOOLEAN NOT NULL DEFAULT false

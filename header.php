@@ -20,7 +20,7 @@
                         <a href="requette_recipes.php" class="nav-link text-uppercase">Recette</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link text-uppercase">user</a>
+                        <a href="requette_users.php" class="nav-link text-uppercase">user</a>
                     </li>
                 </ul>
             </div>

@@ -2,6 +2,6 @@
 
 $host = 'localhost';
 $dbname = 'recette_magique';
-$user = 'root';
-$password = '';
+$user = 'admin';
+$password = '123456';
 
