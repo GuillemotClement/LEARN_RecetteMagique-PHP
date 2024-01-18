@@ -6,8 +6,7 @@ require_once('header.php');
 ?>
 
     <main>
-        <a href="first_requete.php">Affichage dynamique recette</a>
-        <a href="user_requette.php">Affichage dyna;ique </a>
+        <a href="form_new_recipe.php" class="btn btn-md btn-primary shadow text-uppercase">Nouvelle recette</a>
         <h1 class="uppercase">Nos recettes</h1>
         <div class="ctn-card">
             <?php foreach(getRecipe($recipes) as $recipe): ?>
