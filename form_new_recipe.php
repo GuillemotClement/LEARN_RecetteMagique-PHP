@@ -4,10 +4,14 @@ require_once('header.php');
 ?>
 
 <main class="container">
-    <form action="" method="post" class="border shadow p-3 rounded" enctype="multipart/form-data">
+    <form action="submit_new_recipes.php" method="post" class="border shadow p-3 rounded" enctype="multipart/form-data">
         <h2 class="text-uppercase m-3">Nouvelle recette</h2>
         <div class="mb-3">
-            <label for="name" class="form-label text-uppercase">Nom :</label>
+            <label for="pseudo" class="form-label text-uppercase">Pseudo :</label>
+            <input type="text" class="form-control" name="pseudo" id="pseudo">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label text-uppercase">Nom recette:</label>
             <input type="text" class="form-control" name="name" id="name">
         </div>
         <div class="mb-3">
