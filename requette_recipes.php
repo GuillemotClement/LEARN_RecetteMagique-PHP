@@ -2,7 +2,7 @@
 require_once('databaseconnect.php');
 require_once('Service/myFct.php');
 
-$queryRecipes = "SELECT name_recipe, author, order_recipe, date_creation_recipe, pic FROM recipes WHERE available = true";
+$queryRecipes = "SELECT id, name_recipe, author, order_recipe, date_creation_recipe, pic FROM recipes WHERE available = true";
 $recipesStatement = $mysqlClient->prepare($queryRecipes);
 $recipesStatement->execute();
 $recipes = $recipesStatement->fetchAll(PDO::FETCH_ASSOC);
@@ -23,9 +23,9 @@ require_once('header.php');
                     <p class="card-text italic">Proposé par <span class="bold blue"><?= $recipe['author']; ?></span></p>
                     <p class="card-text fs-6">Le <span class="bold blue"><?= $recipe['date_creation_recipe']; ?></span></p>
                     <div class="ctn_btn">
-                        <a href="affichage_recipe.php" class="btn btn-sm bg-primary shadow text-light">Afficher</a>
-                        <a href="" class="btn btn-sm bg-danger shadow text-light">Supprimer</a>
-                        <a href="" class="btn btn-sm bg-success shadow text-light">Update</a>
+                        <a href="affichage_recipe.php?id=<?php echo $recipe['id']?>" class="btn btn-sm bg-primary shadow text-light">Afficher</a>
+                        <a  class="btn btn-sm bg-danger shadow text-light">Supprimer</a>
+                        <a href="update_recipe.php?id=<?php echo $recipe['id']?>" class="btn btn-sm bg-success shadow text-light">Update</a>
                     </div>
                     
                 </div>
