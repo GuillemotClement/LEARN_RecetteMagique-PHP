@@ -23,7 +23,7 @@ require_once('header.php');
                     <p class="card-text italic">Proposé par <span class="bold blue"><?= $recipe['author']; ?></span></p>
                     <p class="card-text fs-6">Le <span class="bold blue"><?= $recipe['date_creation_recipe']; ?></span></p>
                     <div class="ctn_btn">
-                        <a href="" class="btn btn-sm bg-primary shadow text-light">Afficher</a>
+                        <a href="affichage_recipe.php" class="btn btn-sm bg-primary shadow text-light">Afficher</a>
                         <a href="" class="btn btn-sm bg-danger shadow text-light">Supprimer</a>
                         <a href="" class="btn btn-sm bg-success shadow text-light">Update</a>
                     </div>

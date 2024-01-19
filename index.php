@@ -6,6 +6,7 @@ require_once('header.php');
 ?>
 
     <main>
+        TODO : formulaire doit pointer vers requete recipe 
         <a href="form_new_recipe.php" class="btn btn-md btn-primary shadow text-uppercase">Nouvelle recette</a>
         <h1 class="uppercase">Nos recettes</h1>
         <div class="ctn-card">
