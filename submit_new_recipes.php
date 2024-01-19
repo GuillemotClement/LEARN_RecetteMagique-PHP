@@ -2,14 +2,17 @@
 require_once('databaseconnect.php');
 require_once('Service/myFct.php');
 $postData = $_POST;
-$queryRecipe = "INSERT INTO recipes (name_recipe, author, order_recipe, date_creation) VALUES (name = :name, author = :author, order_recipe = :order_recipe, date_creation = :date_creation, available = true)";
+
+$currentDateTime = date('Y-m-d H:i:s');
+$queryRecipe = "INSERT INTO recipes (name_recipe, author, order_recipe, date_creation_recipe, available) VALUES (:name_recipe, :author, :order_recipe, :date_creation_recipe, :available)";
 
 $recipeStatement = $mysqlClient->prepare($queryRecipe);
 $recipeStatement->execute([
     'name_recipe'=>$postData['name'],
     'author'=>$postData['pseudo'],
     'order_recipe'=>$postData['order'],
-    'date_creation'=>date('d/m/Y - H:i')
+    'date_creation_recipe'=>$currentDateTime,
+    'available'=>true
     ]);
 // ])
 
@@ -22,9 +25,6 @@ $recipes = $recipeList->fetchAll(PDO::FETCH_ASSOC);
 require_once('head.php');
 require_once('header.php');
 ?>
-TODO: afficher tableau recap des recette de la BDD
-<?=printr($postData);?>
-
 
 <main>
     <h1 class="text-center text-uppercase">liste recette</h1>
