@@ -48,6 +48,11 @@ require_once('header.php');
                 <td class="text-center border"><?=$recipe['order_recipe'];?></td>
                 <td class="text-center border"><?=$recipe['date_creation_recipe'];?></td>
                 <td class="text-center border"><?=$recipe['available'];?></td>
+                <td>
+                    <a href="" class="btn">Afficher</a>
+                    <a href="" class="btn">Supprimer</a>
+                    <a href="" class="btn">Update</a>
+                </td>
             </tr>
             <?php endforeach;?>
         </tbody>

@@ -13,15 +13,21 @@ require_once('header.php');
 
 <main>
     <h1 class="uppercase">Nos recettes</h1>
-    <div class="ctn-card">
+    <div class="ctn-card ">
         <?php foreach($recipes as $recipe): ?>
-            <div class="card">
+            <div class="card shadow">
                 <img src="<?= $recipe['pic'];?>" alt="illustration de la recette" class="card-img-top">
                 <div class="card-body">
                     <h2 class="card-title"><?= $recipe['name_recipe']; ?></h2>
                     <p class="card-text"><?= $recipe['order_recipe']; ?> </p>
                     <p class="card-text italic">Proposé par <span class="bold blue"><?= $recipe['author']; ?></span></p>
                     <p class="card-text fs-6">Le <span class="bold blue"><?= $recipe['date_creation_recipe']; ?></span></p>
+                    <div class="ctn_btn">
+                        <a href="" class="btn btn-sm bg-primary shadow text-light">Afficher</a>
+                        <a href="" class="btn btn-sm bg-danger shadow text-light">Supprimer</a>
+                        <a href="" class="btn btn-sm bg-success shadow text-light">Update</a>
+                    </div>
+                    
                 </div>
             </div>
         <?php endforeach; ?>
