@@ -24,7 +24,7 @@ require_once('header.php');
                     <p class="card-text fs-6">Le <span class="bold blue"><?= $recipe['date_creation_recipe']; ?></span></p>
                     <div class="ctn_btn">
                         <a href="affichage_recipe.php?id=<?php echo $recipe['id']?>" class="btn btn-sm bg-primary shadow text-light">Afficher</a>
-                        <a  class="btn btn-sm bg-danger shadow text-light">Supprimer</a>
+                        <a  href="confirm_delette.php?id=<?= $recipe['id']?>" class="btn btn-sm bg-danger shadow text-light">Supprimer</a>
                         <a href="update_recipe.php?id=<?php echo $recipe['id']?>" class="btn btn-sm bg-success shadow text-light">Update</a>
                     </div>
                     
